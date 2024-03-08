@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SfPopupTest"
+             xmlns:SfPopUp="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+             x:Class="SfPopupTest.MainPage">
+
+    <VerticalStackLayout Padding="30,0" Spacing="25">
+        <SfPopUp:SfPopup x:Name="Popup" HeightRequest="70" WidthRequest="300" ShowHeader="False" ShowFooter="False" AnimationMode="None" ShowOverlayAlways="False" >
+            <SfPopUp:SfPopup.PopupStyle>
+                <SfPopUp:PopupStyle PopupBackground="{AppThemeBinding Light={StaticResource WhiteSmoke}, Dark={StaticResource Gray500}}" 
+                   CornerRadius="7" />
+            </SfPopUp:SfPopup.PopupStyle>
+
+            <SfPopUp:SfPopup.ContentTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="30,5" ColumnDefinitions="275, 15" VerticalOptions="Center" >
+                        <HorizontalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center" >
+                            <Label Text="Label: " Margin="10,0,0,0" FontSize="17" FontAttributes="Bold" VerticalTextAlignment="End"/>
+                            <Label Text="{Binding LabelString, Mode=TwoWay}" Margin="5,0,0,0" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="End"/>
+                        </HorizontalStackLayout>
+                        <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                           X2="275" StrokeThickness="0.8" Stroke="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource WhiteSmoke}}" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </SfPopUp:SfPopup.ContentTemplate>
+        </SfPopUp:SfPopup>
+        <Button Text="Open PopUp" Clicked="ButtonClicked"  />
+    </VerticalStackLayout>
+</ContentPage>
